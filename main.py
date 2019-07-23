@@ -7,8 +7,11 @@ raiz.geometry('300x200') # anchura x altura
 
 raiz.configure(bg = 'beige')
 # Asigna un título a la ventana
+#------------------------
 
 raiz.title('Algoritmo de las 8 reinas')
+
+#------------------------
 
 ttk.Button(raiz, text='Salir', command=quit).pack(side=BOTTOM)
 
