@@ -12,15 +12,16 @@ def cadenaN(numerolimite):
     shuffle(x)
     return x
 #Valoracion
-def valoracion(Matriz,np):
+def valoracion(Matriz,np,nr):
     Valor = []
+    matriz = []
     contador = 0
     for m in range(np):
         matriz=Matriz[m]
-        for i in range(8):
+        for i in range(nr):
             oi = matriz[i]
-            for j in range(8):
-                oj=matriz[j]
+            for j in range(nr):
+                oj = matriz[j]
                 if(i != j):
                     _v1=math.fabs(oi-oj)
                     _v2=math.fabs(i-j)
@@ -51,18 +52,18 @@ def torneo(valores, poblacion):
             Ganadores.append(a2)
     return Ganadores
 #cruse
-def cruse(Ganadores,matriz):
+def cruse(Ganadores,matriz,nr):
     hijos = []
     hijo = []
     Ganadores[0]=Ganadores[0]-1
     Ganadores[1]=Ganadores[1]-1
-    a1 = random.randrange(1,8)
+    a1 = random.randrange(1,nr)
     #print('Alelo donde se segmenta: ',a1)
     ax1=a1
     for j in range(2):
         for i in range(a1):
             hijo.append((matriz[Ganadores[j]][i]))
-        for m in range (8):
+        for m in range (nr):
             if(j==0):
                 a=hijo.count(matriz[Ganadores[1]][m])
                 if(a==0):
@@ -78,9 +79,9 @@ def cruse(Ganadores,matriz):
         ax1=a1
     return hijos
 #mutacion
-def mutacion_un_hijo(hijo):
-    r1 = random.randrange(8)
-    r2 = random.randrange(8)
+def mutacion_un_hijo(hijo,nr):
+    r1 = random.randrange(nr)
+    r2 = random.randrange(nr)
     G1 = hijo[r1]
     G2 = hijo[r2]
     hijo[r1] = G2
