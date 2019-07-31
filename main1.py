@@ -1,7 +1,8 @@
 # Andres Julian
 from builtins import print
+from time import time
 from pip._vendor.distlib.compat import raw_input
-import Funciones
+import Funciones1
 #poblacion
 Matriz = []
 Fitnes = []
@@ -33,24 +34,24 @@ while(bandera):
     else:
         print("Inserte una probabilidad válida.")
 #Crea la poblacion
+start_time = time()
 for m in range(poblacion):
-    Matriz.append(Funciones.cadenaN(nr+1))
-#Imprime la poblacion
+    Matriz.append(Funciones1.cadenaN(nr + 1))
 for i in range(poblacion):
     print ("Individuo", (i+1), ": ", Matriz[i])
 for secuencia in range(re):
     print("Repeticion ",secuencia+1)
     #Sacamos Fitness
-    Fitnes = (Funciones.valoracion(Matriz,poblacion,nr))
+    Fitnes = (Funciones1.valoracion(Matriz, poblacion, nr))
     #for fit in range (poblacion):
         #print("Fitnes Individuo", (fit+1),":", Fitnes[fit])
     axx = Fitnes.count(0)
     #Obtener ganadores
-    Ganadores=(Funciones.torneo(Fitnes,poblacion))
+    Ganadores=(Funciones1.torneo(Fitnes, poblacion))
     #for gan in range (2):
         #print("Padre", (gan+1),":", Ganadores[gan])
     #Probabilidad Cruse
-    probCruce = Funciones.Probabilidad()
+    probCruce = Funciones1.Probabilidad()
     #print("Probabilidad aleatoria: ", probCruce)
     if(probCruce > proCruse):
         hijos = []
@@ -61,33 +62,35 @@ for secuencia in range(re):
             hij = Matriz[Ganadores[hj]]
             hijos.append(hij)
     else:
-        hijos=Funciones.cruse(Ganadores,Matriz,nr)
+        hijos=Funciones1.cruse(Ganadores, Matriz, nr)
     #Fin Probabilidad Cruse
     #for hj in range(2):
         #print("hijo",hj+1,": ",hijos[hj])
     #Probabilidad Mutacion
-    probMutacion = Funciones.Probabilidad()
+    probMutacion = Funciones1.Probabilidad()
     #print("Probabilidad aleatoria: ", probMutacion)
     if(probMutacion>proMutacion):
-        print("sin mutacion")
+        #print("sin mutacion")
+        pass
     else:
         for hm in range(2):
-            hijos[hm] = Funciones.mutacion_un_hijo(hijos[hm],nr)
+            hijos[hm] = Funciones1.mutacion_un_hijo(hijos[hm], nr)
         #for hj in range(2):
             #print("hijo", hj + 1, ": ", hijos[hj])
     #Fin Probabilidad Mutacion
-    FitnesHijos=Funciones.valoracion(hijos,2,nr)
+    FitnesHijos=Funciones1.valoracion(hijos, 2, nr)
     #for fh in range(2):
         #print("hijo Fitnes", fh + 1, ": ", FitnesHijos[fh])
-    sel=Funciones.seleccion(Ganadores,FitnesHijos,Fitnes)
+    sel=Funciones1.seleccion(Ganadores, FitnesHijos, Fitnes)
     if(sel[0]==11):
         Matriz[Ganadores[0]]=hijos[0]
     if(sel[1]==22):
         Matriz[Ganadores[1]]=hijos[1]
     #for i in range(poblacion):
         #print ("Individuo", (i+1), ": ", Matriz[i])
+elapsed_time = time() - start_time
 print("-------------------------Fin-----------------------------------")
-Fitnes = (Funciones.valoracion(Matriz, poblacion,nr))
+Fitnes = (Funciones1.valoracion(Matriz, poblacion, nr))
 Ganador=0
 libro=open('Ganadores.txt','a')
 for i in range(poblacion):
@@ -101,6 +104,7 @@ for i in range(poblacion):
 libro.write('\n')
 libro.close()
 
+print("Lapso de tiempo: %.10f segundos." % elapsed_time)
 print("numero de individuaos con un 0: ",axx)
 print("Ganador: ",Ganador+1)
 print("Ganador: ",Matriz[Ganador],"Fitness: ",Fitnes[Ganador])
