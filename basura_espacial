@@ -1,0 +1,25 @@
+#print(individuo[a],valor[a],a)
+    #print(individuo[ganador],valor[ganador],ganador)
+    if(ganador == 3):
+        matriz[padres[0]] = individuo[ganador]
+    elif(a == 2 ):
+        matriz[padres[1]] = individuo[a]
+    if(ganador==0 or ganador == 1):
+        matriz[padres[0]] = individuo[ganador]
+    elif (a == 0 or a == 1):
+        matriz[padres[1]] = individuo[a]
+
+   ---------------------------------------------------
+ Master = [nr,Matriz[Ganador]]
+        tablero(self,Master)
+
+        def tablero(self,Master):
+    self.raiz = Tk()
+    self.raiz.geometry('300x220')
+    self.raiz.configure(bg='beige')
+    self.raiz.title('Tablero')
+    nr = Master[0]
+    print(Master)
+    for i in range(nr):
+        self.mensajeB = Label(self.raiz, bg="Black")
+        self.mensajeB.pack()
