@@ -93,7 +93,9 @@ class Aplicacion():  # creacion de la ventana
             else:
                 for hm in range(2):
                     hijos[hm] = Funciones.mutacion_un_hijo(hijos[hm], nr)
-            Matriz=Funciones.seleccion(Ganadores,hijos,Matriz,nr)
+            # Matriz = Funciones.seleccion(Ganadores,hijos,Matriz,nr)
+            for i in range(2):
+                Matriz = Funciones.seleccion2(hijos[i],Matriz,poblacion,nr,Fitnes)
         elapsed_time = time() - start_time
         print("-------------------------Fin-----------------------------------")
         Fitnes = (Funciones.valoracion(Matriz, poblacion, nr))
