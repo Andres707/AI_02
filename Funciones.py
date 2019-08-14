@@ -72,8 +72,7 @@ def cruse(Ganadores, matriz, nr):
     # print('Alelo donde se segmenta: ',a1)
     ax1 = a1
     for j in range(2):
-        for i in range(a1) \
-                :
+        for i in range(a1):
             hijo.append((matriz[Ganadores[j]][i]))
         for m in range(nr):
             if (j == 0):
