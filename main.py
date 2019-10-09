@@ -1,3 +1,7 @@
+"""
+    Autor Andres707
+"""
+
 import tkinter as tk
 from tkinter import *  # Carga módulo tk (widgets estándar)
 from tkinter import ttk  # Carga ttk (para widgets nuevos 8.5+)
@@ -93,6 +97,7 @@ class Aplicacion():  # creacion de la ventana
             else:
                 for hm in range(2):
                     hijos[hm] = Funciones.mutacion_un_hijo(hijos[hm], nr)
+            # Autor Andres707
             # Matriz = Funciones.seleccion(Ganadores,hijos,Matriz,nr)
             for i in range(2):
                 Matriz = Funciones.seleccion2(hijos[i],Matriz,poblacion,nr,Fitnes)
@@ -115,7 +120,7 @@ class Aplicacion():  # creacion de la ventana
         print("Lapso de tiempo: %.10f segundos." % elapsed_time)
         print("numero de individuaos con un 0: ", axx)
         print("Ganador: ", Ganador + 1)
-        print("Ganador: ", Matriz[Ganador], "Fitness: ", Fitnes[Ganador])
+        print("Ganador: ", Matriz[Ganador], "Fitness: ", Fitnes[Ganador], "Autor Andres707")
         p="Ganador: ", Matriz[Ganador], "Fitness: ", Fitnes[Ganador]
         p=str(p)
         self.mensajeLT = Label(self.raiz, text="Lapso de tiempo: %.10f segundos." % elapsed_time,fg="black")
